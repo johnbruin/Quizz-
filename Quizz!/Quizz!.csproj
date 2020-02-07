@@ -134,6 +134,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="MusicPlayer.cs" />
     <Compile Include="UserControls\ChoosePlayerControl.xaml.cs">
       <DependentUpon>ChoosePlayerControl.xaml</DependentUpon>
     </Compile>
@@ -246,15 +247,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Music\Cybernoid.sid" />
-    <None Include="Music\Fruitbank.sid" />
-    <None Include="Music\Last_Ninja.sid" />
-    <None Include="Music\Last_Ninja_2.sid" />
-    <None Include="Music\Last_Ninja_3.sid" />
-    <None Include="Music\Last_Ninja_Remix.sid" />
-    <None Include="Music\Mr_Heli.sid" />
-    <None Include="Music\Parallax.sid" />
-    <None Include="Music\Smash_TV.sid" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -266,6 +258,11 @@
     <Resource Include="HighScores.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Music\Fruitbank_T002.sid_MOS6581R3.mp3" />
+    <Content Include="Music\Fruitbank_T003.sid_MOS6581R3.mp3" />
+    <Content Include="Music\Fruitbank_T005.sid_MOS6581R3.mp3" />
+    <Content Include="Music\Parallax_T002.sid_MOS6581R2.mp3" />
+    <Content Include="Music\Super_Trucker_T001.sid_MOS6581R2.mp3" />
     <Resource Include="Images\bomb.png" />
     <Resource Include="Images\explosion.png" />
     <Resource Include="Images\right.png" />
@@ -282,7 +279,7 @@
     <Resource Include="Avatars\Southpark\skeleton.png" />
     <Resource Include="Avatars\Southpark\sm.png" />
     <Resource Include="Avatars\Southpark\spiderman.png" />
-    <Content Include="Music\sidplay2.exe" />
+    <Content Include="Music\Fruitbank_T001.sid_MOS6581R3.mp3" />
     <Resource Include="Questions\70-536.xml" />
   </ItemGroup>
   <ItemGroup />

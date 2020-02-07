@@ -61,7 +61,8 @@ namespace Quizz_
 
         void myStoryboard_Completed(object sender, EventArgs e)
         {
-            Main.PlaySound("-o26 fruitbank.sid", 2);
+            Main.musicPlayer.Play("Fruitbank_T002.sid_MOS6581R3.mp3");
+
             Ending(this, e);
         }
 
@@ -86,7 +87,7 @@ namespace Quizz_
                         Main.players[0].Buzzer = ace.Id;
                         buzzer.Inactive(ace.Id);
                         buzzer.LightOn(ace.Id);
-                        Main.PlaySound("-o27 fruitbank.sid", 1);
+
                         buttonBlue.Visibility = Visibility.Hidden;
                         if (!Waiting) PlayerTimer(10);
                     }
@@ -96,7 +97,7 @@ namespace Quizz_
                         Main.players[1].Buzzer = ace.Id;
                         buzzer.Inactive(ace.Id);
                         buzzer.LightOn(ace.Id);
-                        Main.PlaySound("-o27 fruitbank.sid", 1);
+
                         buttonOrange.Visibility = Visibility.Hidden;
                         if (!Waiting) PlayerTimer(10);
                     }
@@ -106,7 +107,7 @@ namespace Quizz_
                         Main.players[2].Buzzer = ace.Id;
                         buzzer.Inactive(ace.Id);
                         buzzer.LightOn(ace.Id);
-                        Main.PlaySound("-o27 fruitbank.sid", 1);
+
                         buttonGreen.Visibility = Visibility.Hidden;
                         if (!Waiting) PlayerTimer(10);
                     }
@@ -116,7 +117,7 @@ namespace Quizz_
                         Main.players[3].Buzzer = ace.Id;
                         buzzer.Inactive(ace.Id);
                         buzzer.LightOn(ace.Id);
-                        Main.PlaySound("-o27 fruitbank.sid", 1);
+
                         buttonYellow.Visibility = Visibility.Hidden;
                         if (!Waiting) PlayerTimer(10);
                     }
@@ -129,7 +130,6 @@ namespace Quizz_
 
         private void buttonBlue_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
             Main.players[0].Active = true;
             Main.players[1].Active = false;
             Main.players[2].Active = false;
@@ -139,7 +139,6 @@ namespace Quizz_
 
         private void buttonOrange_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
             Main.players[0].Active = false;
             Main.players[1].Active = true;
             Main.players[2].Active = false;
@@ -149,7 +148,6 @@ namespace Quizz_
 
         private void buttonGreen_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
             Main.players[0].Active = false;
             Main.players[1].Active = false;
             Main.players[2].Active = true;
@@ -159,7 +157,6 @@ namespace Quizz_
 
         private void buttonYellow_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
             Main.players[0].Active = false;
             Main.players[1].Active = false;
             Main.players[2].Active = false;

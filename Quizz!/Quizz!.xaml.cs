@@ -17,7 +17,9 @@ namespace Quizz_
         public static Buzzer buzzer;
         public static QuestionList questionlist = new QuestionList();
         public static Player[] players;
-        public static SID sidplayer;
+
+        //public static SID sidplayer;
+        public static MusicPlayer musicPlayer;
 
         private int questioncounter = 0;
         private int questionsperround = 10;
@@ -25,12 +27,14 @@ namespace Quizz_
 
         public Main()
         {
-            WindowState = WindowState.Normal;
-            WindowStyle = WindowStyle.None;
-            Topmost = true;
-            WindowState = WindowState.Maximized;
+            //WindowState = WindowState.Normal;
+            //WindowStyle = WindowStyle.None;
+            //Topmost = true;
+            //WindowState = WindowState.Maximized;
 
             InitializeComponent();
+
+            Main.musicPlayer = new MusicPlayer();
 
             try
             {
@@ -43,7 +47,7 @@ namespace Quizz_
 
             InitPlayers();
 
-            ChoosePlayers();
+            ChoosePlayers();            
         }
 
         private void InitPlayers()
@@ -67,12 +71,8 @@ namespace Quizz_
         #region Choose Players
         private void ChoosePlayers()
         {
-            Main.sidplayer = new SID
-            {
-                Filename = "fruitbank.sid"
-            };
-            Main.sidplayer.play();
-
+            Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+            
             var controlChoosePlayers = new ChoosePlayerControl();
             controlChoosePlayers.Finished += new ChoosePlayerControl.ChoosePlayerControlHandler(controlChoosePlayers_Finished);
             
@@ -134,10 +134,12 @@ namespace Quizz_
             mainGrid.Children.Clear();
             mainGrid.Children.Add(controlIntermezzo);
         }
+
         private void IntermezzoRound1_Finished(object sender, EventArgs e)
         {
-            Main.sidplayer.stop();
-            PlaySound("-o10 fruitbank.sid", 3);
+            Main.musicPlayer.Stop();
+            Main.musicPlayer.Play("Fruitbank_T003.sid_MOS6581R3.mp3");
+
             Round1();
         }
 
@@ -176,7 +178,8 @@ namespace Quizz_
         }
         private void controlShowScores_Finished(object sender, EventArgs e)
         {
-            Main.sidplayer.stop();
+            Main.musicPlayer.Stop();
+
             mainGrid.Children.Clear();
             mainGrid.Children.Add(controlRound1Questions);
             if (questioncounter < questionsperround)
@@ -193,7 +196,7 @@ namespace Quizz_
         #region Show Winner
         private void ShowWinner()
         {
-            PlaySound("-o6 fruitbank.sid", 5);
+            Main.musicPlayer.Play("Fruitbank_T005.sid_MOS6581R3.mp3");
 
             WinnerControl controlWinner = new WinnerControl();
             controlWinner.Finished += new WinnerControl.WinnerControlHandler(controlWinner_Finished);
@@ -202,7 +205,7 @@ namespace Quizz_
         }
         private void controlWinner_Finished(object sender, EventArgs e)
         {
-            Main.sidplayer.stop();
+            Main.musicPlayer.Stop();
             ShowHighScores();
         }
         #endregion
@@ -210,9 +213,7 @@ namespace Quizz_
         #region Show High Scores
         private void ShowHighScores()
         {
-            Main.sidplayer = new SID();
-            Main.sidplayer.Filename = "-o2 parallax.sid";
-            Main.sidplayer.play();
+            Main.musicPlayer.Play("Parallax_T002.sid_MOS6581R2.mp3");
 
             HighScoreControl controlHighScores = new HighScoreControl();
             for (int i=0; i<4; i++)
@@ -228,7 +229,7 @@ namespace Quizz_
         }
         private void controlHighScores_Finished(object sender, EventArgs e)
         {
-            Main.sidplayer.stop();
+            Main.musicPlayer.Stop();
             InitPlayers();
             ChoosePlayers();
         }
@@ -256,23 +257,14 @@ namespace Quizz_
             return i;
         }
 
-        public static void PlaySound(string sound, int seconds)
-        {
-            var sidplay = new SID();
-            sidplay.Seconds = seconds;
-            sidplay.Filename = sound;
-            sidplay.play();
-        }
-
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             try
             {
-                Main.sidplayer.stop();
+                Main.musicPlayer.Stop();
             }
             catch
             { }
         }
-
     }
 }
