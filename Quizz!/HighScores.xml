@@ -24,4 +24,12 @@
     <name>BATMAN</name>
     <score>00000</score>
   </highscore>
+  <highscore>
+    <name>REYN</name>
+    <score>00300</score>
+  </highscore>
+  <highscore>
+    <name>NEO</name>
+    <score>00000</score>
+  </highscore>
 </highscores>
