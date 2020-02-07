@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -24,6 +25,7 @@ namespace Quizz_
         public delegate void QuestionControlHandler(object sender, EventArgs e);
 
         public event QuestionControlHandler Finished;
+        private Dictionary<answercolor, Button> AnswerButtons;
 
         public QuestionControl()
         {
@@ -33,17 +35,25 @@ namespace Quizz_
 
             scorePlayer1.imgAvatar.Source = Main.players[0].Avatar;
             scorePlayer1.txtName.Text = Main.players[0].Name;
- 
+
             scorePlayer2.imgAvatar.Source = Main.players[1].Avatar;
             scorePlayer2.txtName.Text = Main.players[1].Name;
- 
+
             scorePlayer3.imgAvatar.Source = Main.players[2].Avatar;
             scorePlayer3.txtName.Text = Main.players[2].Name;
- 
+
             scorePlayer4.imgAvatar.Source = Main.players[3].Avatar;
             scorePlayer4.txtName.Text = Main.players[3].Name;
 
-            UpdateScores(); 
+            UpdateScores();
+
+            AnswerButtons = new Dictionary<answercolor, Button>
+            {
+                { answercolor.blue, textBlue },
+                { answercolor.green, textGreen },
+                { answercolor.orange, textOrange },
+                { answercolor.yellow, textYellow }
+            };
 
             if (!Main.players[0].Active)
             {
@@ -127,6 +137,9 @@ namespace Quizz_
             {
                 if (!GameOver && buzzer.IsActive(ace.Id) && ace.Answer != answercolor.red)
                 {
+                    if (AnswerButtons[ace.Answer].Content == null)
+                        return; //ignore not used colors/buttons
+
                     buzzer.Inactive(ace.Id);
                     buzzer.LightOff(ace.Id);
 
@@ -172,10 +185,8 @@ namespace Quizz_
                     }
                     if (ready)
                         Ending();
-
                 }
             }));
-
         }
 
         public void Start()
@@ -218,11 +229,33 @@ namespace Quizz_
             this.textQuestion.Text = question.text;
             this.textBlue.Content = question.answerBlue;
             this.textOrange.Content = question.answerOrange;
-            this.textGreen.Content = question.answerGreen;
-            this.textYellow.Content = question.answerYellow;
+            if (question.answerGreen != null)
+            {
+                this.textGreen.Content = question.answerGreen;
+            }
+            else
+            {
+                this.textGreen.Content = null;
+                this.textGreen.Visibility = Visibility.Hidden;
+            }
 
-            //Main.musicPlayer.Play(question.media);
-            Main.musicPlayer.Play("Super_Trucker_T001.sid_MOS6581R2.mp3");
+            if (question.answerYellow != null)
+            {
+                this.textYellow.Content = question.answerYellow;
+            }
+            else
+            {
+                this.textYellow.Content = null;
+                this.textYellow.Visibility = Visibility.Hidden;
+            }
+
+            if (question.media?.EndsWith(".sid") != null)
+            {
+                Main.sidplayer = new SID();
+                Main.sidplayer.Seconds = 16;
+                Main.sidplayer.Filename = question.media;
+                Main.sidplayer.play();
+            }
         }
 
         private void CollectPoints()
@@ -259,7 +292,7 @@ namespace Quizz_
 
             if (question.CorrectAnswer != answercolor.blue)
                 ScoreAdder = -200;
-            CollectPoints();                       
+            CollectPoints();
             Ending();
         }
 

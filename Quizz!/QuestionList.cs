@@ -3,30 +3,16 @@ using System.Data;
 
 namespace Quizz_
 {
-    public class QuestionList
+    public class QuestionList : IQuestionList
     {
         private DataSet QuestionsDS = new DataSet();
-        public int Count
+
+        public void Initialize(params object[] args)
         {
-            get
-            {
-                if (QuestionsDS.Tables["question"] == null)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return QuestionsDS.Tables["question"].Rows.Count;
-                }
-            }
+            QuestionsDS.ReadXml((string)args[0]);
         }
 
-        public void ReadQuestions(string filename)
-        {
-            QuestionsDS.ReadXml(filename);            
-        }
-
-        public Question GetRandomQuestion()
+        public Question GetNextQuestion()
         {
             DataRowCollection dr = QuestionsDS.Tables["question"].Rows;
             if (dr.Count > 0)
@@ -38,13 +24,13 @@ namespace Quizz_
                 string strNumbers = "1234";
                 strNumbers = Shuffle(strNumbers);
                 question.answerBlue = dr[r]["answer" + strNumbers.Substring(0, 1)].ToString();
-                if (strNumbers.Substring(0, 1).ToString() == "1") question.CorrectAnswer = answercolor.blue;
+                if (strNumbers.Substring(0, 1) == "1") question.CorrectAnswer = answercolor.blue;
                 question.answerOrange = dr[r]["answer" + strNumbers.Substring(1, 1)].ToString();
-                if (strNumbers.Substring(1, 1).ToString() == "1") question.CorrectAnswer = answercolor.orange;
+                if (strNumbers.Substring(1, 1) == "1") question.CorrectAnswer = answercolor.orange;
                 question.answerGreen = dr[r]["answer" + strNumbers.Substring(2, 1)].ToString();
-                if (strNumbers.Substring(2, 1).ToString() == "1") question.CorrectAnswer = answercolor.green;
+                if (strNumbers.Substring(2, 1) == "1") question.CorrectAnswer = answercolor.green;
                 question.answerYellow = dr[r]["answer" + strNumbers.Substring(3, 1)].ToString();
-                if (strNumbers.Substring(3, 1).ToString() == "1") question.CorrectAnswer = answercolor.yellow;
+                if (strNumbers.Substring(3, 1) == "1") question.CorrectAnswer = answercolor.yellow;
                 question.media = dr[r]["media"].ToString();
 
                 dr[r].Delete();
