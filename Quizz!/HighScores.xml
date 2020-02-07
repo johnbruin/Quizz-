@@ -84,4 +84,8 @@
     <name>JIMMY</name>
     <score>00000</score>
   </highscore>
+  <highscore>
+    <name>BATMAN</name>
+    <score>00400</score>
+  </highscore>
 </highscores>
