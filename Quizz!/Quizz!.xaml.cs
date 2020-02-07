@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 
 namespace Quizz_
@@ -15,7 +16,7 @@ namespace Quizz_
     public partial class Main : Window
     {
         public static Buzzer buzzer;
-        public static QuestionList questionlist = new QuestionList();
+        public static IQuestionList questionlist = new QuestionListOpenTrivia();
         public static Player[] players;
         public static SID sidplayer;
 
@@ -27,8 +28,11 @@ namespace Quizz_
         {
             WindowState = WindowState.Normal;
             WindowStyle = WindowStyle.None;
-            Topmost = true;
-            WindowState = WindowState.Maximized;
+            if (!Debugger.IsAttached)
+            {
+                Topmost = true;
+                WindowState = WindowState.Maximized;
+            }
 
             InitializeComponent();
 
@@ -56,13 +60,7 @@ namespace Quizz_
             }
         }
 
-        private void ReadQuestions()
-        {
-            if (questionlist.Count == 0)
-            {
-                questionlist.ReadQuestions("../../questions/70-536.xml");
-            }
-        }
+        private void ReadQuestions() => questionlist.Initialize("../../questions/70-536.xml");
 
         #region Choose Players
         private void ChoosePlayers()
@@ -149,6 +147,7 @@ namespace Quizz_
         {
             questioncounter = 0;
             questionsperround = 4;
+            ReadQuestions();
             controlRound1Questions = new QuestionControl();
             controlRound1Questions.GameType = gametype.fastest;
             controlRound1Questions.Finished += new QuestionControl.QuestionControlHandler(controlRound1Questions_Finished);
@@ -160,7 +159,6 @@ namespace Quizz_
         private void Round1NextQuestion()
         {
             questioncounter++;
-            ReadQuestions();
             controlRound1Questions.Start();
         }
         void controlRound1Questions_Finished(object sender, EventArgs e)

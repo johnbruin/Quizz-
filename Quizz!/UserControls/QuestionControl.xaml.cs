@@ -212,13 +212,13 @@ namespace Quizz_
             textYellow.Background = Brushes.Black;
 
             Main.sidplayer.stop();
-            question = Main.questionlist.GetRandomQuestion();
+            question = Main.questionlist.GetNextQuestion();
             this.textQuestion.Text = question.text;
             this.textBlue.Content = question.answerBlue;
             this.textOrange.Content = question.answerOrange;
             this.textGreen.Content = question.answerGreen;
             this.textYellow.Content = question.answerYellow;
-            if (question.media.EndsWith(".sid"))
+            if (question.media?.EndsWith(".sid") != null)
             {
                 Main.sidplayer = new SID();
                 Main.sidplayer.Seconds = 16;
