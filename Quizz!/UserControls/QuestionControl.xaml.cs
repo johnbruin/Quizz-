@@ -225,7 +225,8 @@ namespace Quizz_
 
             Main.musicPlayer.Stop();
 
-            question = Main.questionlist.GetRandomQuestion();
+            question = Main.questionlist.GetNextQuestion();
+
             this.textQuestion.Text = question.text;
             this.textBlue.Content = question.answerBlue;
             this.textOrange.Content = question.answerOrange;
@@ -249,13 +250,7 @@ namespace Quizz_
                 this.textYellow.Visibility = Visibility.Hidden;
             }
 
-            if (question.media?.EndsWith(".sid") != null)
-            {
-                Main.sidplayer = new SID();
-                Main.sidplayer.Seconds = 16;
-                Main.sidplayer.Filename = question.media;
-                Main.sidplayer.play();
-            }
+            Main.musicPlayer.Play("Super_Trucker_T001.sid_MOS6581R2.mp3");
         }
 
         private void CollectPoints()
