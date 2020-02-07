@@ -1,0 +1,30 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Quizz_.PlayerScoreControl"
+	x:Name="ucPlayerScoreControl"
+	HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+	
+    <Canvas Width="140" Height="260">
+		<StackPanel Width="140">
+	        <Border BorderBrush="White" BorderThickness="1,1,1,0">
+	            <TextBlock  TextAlignment="Center" x:Name="txtName" Width="Auto" Height="Auto" Text="PLAYER" Foreground="White" Background="Black" FontSize="14" FontWeight="Bold"/>
+	        </Border>
+	        <Border BorderBrush="White" BorderThickness="1">
+				<Grid Width="140" Height="150">
+					<Grid.Background>
+        				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        					<GradientStop Color="#FF474040" Offset="0"/>
+        					<GradientStop Color="#FFFFFFFF" Offset="1"/>
+        				</LinearGradientBrush>
+        			</Grid.Background> 
+	            	<Image x:Name="imgAvatar" ClipToBounds="True" Source="../Avatars/Southpark/reyn.png" Height="210" StretchDirection="Both" Stretch="Uniform" Margin="0,-20,0,-20" />                 
+				</Grid>
+	        </Border>        
+	        <Border x:Name="borderScore" BorderBrush="White" BorderThickness="1,0,1,1">
+	            <TextBlock  TextAlignment="Center" x:Name="txtScore" Width="Auto" Height="Auto" Text="000000" Foreground="White" Background="Black" FontSize="24" FontWeight="Bold"/>
+	        </Border>
+		</StackPanel>
+		<Image x:Name="imageOverlay" Source="Images/wrong.png" Width="153" Height="180" Canvas.Top="-35" Canvas.Left="-23" />
+	</Canvas>
+</UserControl>

@@ -1,0 +1,69 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Quizz_.QuestionControl"
+	x:Name="UserControl" d:DesignHeight="480" Height="Auto" xmlns:Quizz_="clr-namespace:Quizz_" Width="Auto">
+	
+    <UserControl.Resources>
+		<Storyboard x:Key="EndingStoryboard">
+			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="textBlue" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+				<SplineColorKeyFrame KeyTime="00:00:02" Value="Green"/>
+			</ColorAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+		
+	<Grid x:Name="LayoutRoot" Height="550"> 
+		<StackPanel Height="Auto" Width="Auto">
+            <ProgressBar Width="Auto" Height="15" Margin="10"  x:Name="progRoundTimer" Foreground="#FF48C05E" Style="{DynamicResource ProgressBarStyle}">
+				<ProgressBar.Background>
+					<LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+						<GradientStop Color="#00BABABA" Offset="0"/>
+						<GradientStop Color="#26C7C7C7" Offset="0.5"/>
+						<GradientStop Color="#26BABABA" Offset="1"/>
+					</LinearGradientBrush>
+				</ProgressBar.Background>
+			</ProgressBar>            
+			<Border x:Name="Question" Background="Black" CornerRadius="8,8,8,8" BorderThickness="5" Width="Auto" Height="Auto" Margin="5" BorderBrush="Gray" VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top">
+				<TextBlock x:Name="textQuestion" Foreground="White" Margin="10" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" FontFamily="Segoe UI"><Run Text="THIS IS A REALLY DIFFICULT QUESTION ABOUT THE COMMODORE 64 HOME COMPUTER."/></TextBlock>
+			</Border>
+			<Button x:Name="textBlue" Style="{DynamicResource QuestionAnswerButton}" BorderBrush="Blue" Width="600" Height="Auto" Content="BLUE IS THE ANSWER TO ALL YOUR QUESTIONS" Click="textBlue_Click" />
+			<Button x:Name="textOrange" Style="{DynamicResource QuestionAnswerButton}" BorderBrush="Orange" Width="600" Height="Auto" Content="ORANGE IS THE ANSWER TO ALL YOUR QUESTIONS" Click="textOrange_Click" />
+			<Button x:Name="textGreen" Style="{DynamicResource QuestionAnswerButton}" BorderBrush="LimeGreen" Width="600" Height="Auto" Content="GREEN IS THE ANSWER TO ALL YOUR QUESTIONS" Click="textGreen_Click" />
+			<Button x:Name="textYellow" Style="{DynamicResource QuestionAnswerButton}" BorderBrush="Yellow" Width="600" Height="Auto" Content="YELLOW IS THE ANSWER TO ALL YOUR QUESTIONS" Click="textYellow_Click" />
+        </StackPanel>
+
+		<StackPanel VerticalAlignment="Bottom" x:Name="Scores" Orientation="Horizontal" Width="Auto" Height="Auto" HorizontalAlignment="Center" Margin="0,0,0,5">
+			<Quizz_:PlayerScoreControl x:Name="scorePlayer1" Height="125" Margin="50,0,0,0">
+				<Quizz_:PlayerScoreControl.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="0.64" ScaleY="0.64"/>
+					</TransformGroup>
+				</Quizz_:PlayerScoreControl.RenderTransform>
+			</Quizz_:PlayerScoreControl>            
+			<Quizz_:PlayerScoreControl x:Name="scorePlayer2" Height="125">
+				<Quizz_:PlayerScoreControl.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="0.64" ScaleY="0.64"/>
+					</TransformGroup>
+				</Quizz_:PlayerScoreControl.RenderTransform>
+			</Quizz_:PlayerScoreControl>			
+            <Quizz_:PlayerScoreControl x:Name="scorePlayer3" Height="125">
+				<Quizz_:PlayerScoreControl.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="0.64" ScaleY="0.64"/>
+					</TransformGroup>
+				</Quizz_:PlayerScoreControl.RenderTransform>
+			</Quizz_:PlayerScoreControl>			
+            <Quizz_:PlayerScoreControl x:Name="scorePlayer4" Height="125">
+				<Quizz_:PlayerScoreControl.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="0.64" ScaleY="0.64"/>
+					</TransformGroup>
+				</Quizz_:PlayerScoreControl.RenderTransform>
+			</Quizz_:PlayerScoreControl>            
+		</StackPanel>
+	</Grid>
+</UserControl>

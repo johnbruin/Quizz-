@@ -1,0 +1,14 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Quizz_.WinnerControl"
+	x:Name="ucWinnerControl">
+    <StackPanel Width="Auto" Height="Auto">
+		<Label Width="Auto" Height="Auto" Content="AND THE WINNER IS" Foreground="White" FontSize="36" FontWeight="Bold" Margin="20" HorizontalAlignment="Center" />
+		<StackPanel x:Name="stackShowScores" Orientation="Horizontal" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Button x:Name="buttonClose" Style="{DynamicResource AnswerButton}" BorderBrush="Red" Content="CLOSE" Foreground="White" FontWeight="Bold" FontSize="12" Margin="20" Click="ButtonClose_Click" Width="82.833" Height="45.96" />
+	</StackPanel>
+</UserControl>

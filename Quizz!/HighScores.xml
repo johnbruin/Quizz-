@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<highscores>
+  <highscore>
+    <name>JOHN</name>
+    <score>01000</score>
+  </highscore>
+  <highscore>
+    <name>BATMAN</name>
+    <score>01000</score>
+  </highscore>
+  <highscore>
+    <name>CODER</name>
+    <score>00100</score>
+  </highscore>
+  <highscore>
+    <name>DESIGNER</name>
+    <score>00200</score>
+  </highscore>
+  <highscore>
+    <name>HEIDI</name>
+    <score>00000</score>
+  </highscore>
+  <highscore>
+    <name>BATMAN</name>
+    <score>00000</score>
+  </highscore>
+</highscores>

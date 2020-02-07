@@ -1,0 +1,17 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Quizz_.EnterNamesControl"
+	x:Name="ucEnterNamesControl"
+    xmlns:Quizz_="clr-namespace:Quizz_"
+	Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto">
+    <StackPanel Orientation="Vertical">
+		<Label Content="PLEASE ENTER YOUR NAME" Foreground="White" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="20"/>
+		<StackPanel Orientation="Horizontal" Width="Auto">
+	        <Quizz_:EnterNameControl x:Name="namePlayer1" />
+	        <Quizz_:EnterNameControl x:Name="namePlayer2" />
+	        <Quizz_:EnterNameControl x:Name="namePlayer3" />
+	        <Quizz_:EnterNameControl x:Name="namePlayer4" />
+		</StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Quizz_.ChoosePlayerControl"
+    x:Name="UserControl"
+    Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto">
+    <StackPanel Orientation="Vertical">
+		<Label Content="CHOOSE YOUR BUZZER" Foreground="White" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="20"/>
+        <StackPanel Orientation="Horizontal" Width="Auto">
+		    <Button x:Name="buttonBlue" Style="{DynamicResource AnswerButton}"   BorderBrush="Blue"      Width="150" Height="60" Content="PLAYER 1" Click="buttonBlue_Click" />
+		    <Button x:Name="buttonOrange" Style="{DynamicResource AnswerButton}" BorderBrush="Orange"    Width="150" Height="60" Content="PLAYER 2" Click="buttonOrange_Click" />
+		    <Button x:Name="buttonGreen" Style="{DynamicResource AnswerButton}"  BorderBrush="LimeGreen" Width="150" Height="60" Content="PLAYER 3" Click="buttonGreen_Click" />
+		    <Button x:Name="buttonYellow" Style="{DynamicResource AnswerButton}" BorderBrush="Yellow"    Width="150" Height="60" Content="PLAYER 4" Click="buttonYellow_Click" />
+	    </StackPanel>
+        <ProgressBar Width="600" Height="15" Margin="10" x:Name="progPlayerTimer" Foreground="#FF48C05E" Style="{DynamicResource ProgressBarStyle}">
+            <ProgressBar.Background>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                    <GradientStop Color="#00BABABA" Offset="0"/>
+                    <GradientStop Color="#26C7C7C7" Offset="0.5"/>
+                    <GradientStop Color="#26BABABA" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Background>
+        </ProgressBar>        
+    </StackPanel>
+</UserControl>

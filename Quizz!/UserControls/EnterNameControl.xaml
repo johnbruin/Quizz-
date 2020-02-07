@@ -1,0 +1,19 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="Quizz_.EnterNameControl"
+    x:Name="ucEnterNameControl"
+    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Width="150" Height="Auto">
+	<StackPanel Width="140">
+		<TextBox x:Name="txtName" TextAlignment="Center"  Width="Auto" Height="Auto" Text="PLAYER" TextWrapping="Wrap" Foreground="White" Background="Black" FontSize="14" FontWeight="Normal"/>
+        <StackPanel x:Name="stackChooser">
+            <Button Style="{DynamicResource AnswerButton}" BorderBrush="Blue" Content="UP" Foreground="White" Width="Auto" FontWeight="Bold" FontSize="12" Click="ButtonUp_Click" />
+		    <Label x:Name="lbl1" Content="B" Foreground="White" Width="Auto" HorizontalAlignment="Center" FontWeight="Bold"/>
+		    <Label x:Name="lbl2" Content="C" Foreground="White" Width="Auto" HorizontalAlignment="Center" FontWeight="Bold"/>
+		    <Button x:Name="lbl3" Style="{DynamicResource AnswerButton}" BorderBrush="Red" Content="DONE" Foreground="#FFF7F0F0" Width="Auto" FontWeight="Bold" FontSize="12" Click="ButtonSelect_Click" />
+		    <Label x:Name="lbl4" Content="DONE" Foreground="White" Width="Auto" HorizontalAlignment="Center" FontWeight="Bold"/>
+		    <Label x:Name="lbl5" Content="DEL" Foreground="White" Width="Auto" HorizontalAlignment="Center" FontWeight="Bold"/>
+		    <Button Style="{DynamicResource AnswerButton}" BorderBrush="Yellow" Content="DOWN" Foreground="White" Width="Auto" FontWeight="Bold" FontSize="12" Click="ButtonDown_Click" />
+        </StackPanel>
+	</StackPanel>
+</UserControl>

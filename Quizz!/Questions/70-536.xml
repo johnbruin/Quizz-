@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<questions>
+  
+  <question>
+    <id>1</id>
+    <text>You are creating an assembly named ImtechUtils1. ImtechUtils1 contains a public method.
+The global assembly cache contains a second assembly named ImtechUtils2.
+You must ensure that the public method is only called from ImtechUtils2.
+Which permission class should you use?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>StrongNameIdentityPermission</answer1>
+    <answer2>DataProtectionPermission</answer2>
+    <answer3>PublisherIdentityPermission</answer3>
+    <answer4>GacIdentityPermission</answer4>
+  </question>
+  
+  <question>
+    <id>2</id>
+    <text>You need to write a code segment that will create a common language runtime (CLR) unit of isolation within an application.
+Which code segment should you use?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>AppDomain domain;
+domain = AppDomain.CreateDomain("ImtechDomain"):</answer1>
+    <answer2>System.ComponentModel.Component myComponent;
+myComponent = new System.ComponentModel.Component();</answer2>
+    <answer3>System.Diagnostics.Process myProcess;
+myProcess = new System.Diagnostics.Process();</answer3>
+    <answer4>AppDomainSetup mySetup = AppDomain.CurrentDomain.SetupInformation;
+mySetup.ShadowCopyFiles = "true";</answer4>
+  </question>
+  
+  <question>
+    <id>3</id>
+    <text>You are developing an application that will use custom authentication and role-based security.
+You need to write a code segment to make the runtime assign an unauthenticated principal object to each running thread. Which code segment should you use?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>AppDomain domain = AppDomain.CurrentDomain;
+domain.SetPrincipalPolicy(PrincipalPolicy.UnauthenticatedPrincipal);</answer1>
+    <answer2>AppDomain domain = AppDomain.CurrentDomain;
+domain.SetAppDomainPolicy(PolicyLevel.CreateAppDomainLevel());</answer2>
+    <answer3>AppDomain domain = AppDomain.CurrentDomain;
+domain.SetThreadPrincipal(new WindowsPrincipal(null));</answer3>
+    <answer4>AppDomain domain = AppDomain.CurrentDomain;
+domain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);</answer4>
+  </question>
+  
+  <question>
+    <id>4</id>
+    <text>You are developing a custom-collection class.
+You need to create a method in your class. You need to ensure that the method you create in your class returns a type that is compatible with the Foreach statement. Which criterion should the method meet?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>The method must return a type of either IEnumerator or IEnumerable.</answer1>
+    <answer2>The method must return a type of IComparable.</answer2>
+    <answer3>The method must explicitly contain a collection.</answer3>
+    <answer4>The method must be the only iterator in the class.</answer4>
+  </question>
+  
+  <question>
+    <id>5</id>
+    <text>You need to select a class that is optimized for key-based item retrieval from both small and large collections. Which class should you choose?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>HybridDictionary class</answer1>
+    <answer2>OrderedDictionary class</answer2>
+    <answer3>ListDictionary class</answer3>
+    <answer4>Hashtable class</answer4>
+  </question>
+
+  <question>
+    <id>6</id>
+    <text>You need to call an unmanaged function from your managed code by using platform invoke services. What should you do?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>Create a class to hold DLL functions and then create prototype methods by using managed code.</answer1>
+    <answer2>Register your assembly by using COM and then reference your managed code from COM.</answer2>
+    <answer3>Export a type library for your managed code.</answer3>
+    <answer4>Import a type library as an assembly and then create instances of COM object.</answer4>
+  </question>
+
+  <question>
+    <id>7</id>
+    <text>You need to identify a type that meets the following criteria: Is always a number. Is not greater than 65,535.
+Which type should you choose?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>System.UInt16</answer1>
+    <answer2>int</answer2>
+    <answer3>System.String</answer3>
+    <answer4>System.IntPtr</answer4>
+  </question>
+
+  <question>
+    <id>8</id>
+    <text>You are developing an application that will perform mathematical calculations.
+You need to ensure that the application is able to perform multiple calculations simultaneously.
+What should you do?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>For each calculation, call the QueueUserWorkItem method of the ThreadPool class.</answer1>
+    <answer2>Set the IdealProcessor property of the ProcessThread object.</answer2>
+    <answer3>Set the ProcessorAffinity property of the ProcessThread object.</answer3>
+    <answer4>Set the Process.GetCurrentProcess().BasePriority property to High.</answer4>
+  </question>
+
+  <question>
+    <id>9</id>
+    <text>You need to create a method to clear a Queue named q. Which code segment should you use?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>q.Clear();</answer1>
+    <answer2>q.Dequeue();</answer2>
+    <answer3>for each (Object e in q) {
+   q.Enqueue(0);
+ }</answer3>
+    <answer4>for each (Object e in q) {
+   q.Dequeue();
+ }</answer4>
+  </question>
+
+  <question>
+    <id>10</id>
+    <text>You develop a service application that needs to be deployed. Your network administrator creates a specific user account for your service application. You need to configure your service application to run in the context of this specific user account. What should you do?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>Prior to installation, set the Account, Username, and Password properties of the ServiceProcessInstaller class.</answer1>
+    <answer2>Prior to installation, set the StartType property of the ServiceInstaller class.</answer2>
+    <answer3>Use the CONFIG option of the net.exe command-line tool to install the service.</answer3>
+    <answer4>Use the installutil.exe command-line tool to install the service.</answer4>
+  </question>
+
+  <question>
+    <id>11</id>
+    <text>You are developing an application to assist the user in conducting electronic surveys. The survey consists of 25 true-or-false questions. You need to perform the following tasks:
+Initialize each answer to true.Minimize the amount of memory used by each survey.
+Which storage option should you choose?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>BitVector32 answers = new BitVector32(-1);</answer1>
+    <answer2>BitVector32 answers = new BitVector32(1);</answer2>
+    <answer3>BitArray answers = new BitArray(1);</answer3>
+    <answer4>BitArray answers = new BitArray(-1);</answer4>
+  </question>
+
+  <question>
+    <id>12</id>
+    <text>You are creating an undo buffer that stores data modifications. You need to ensure that the undo functionality undoes the most recent data modifications first. You also need to ensure that the undo buffer permits the storage of strings only.
+Which code segment should you use?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1><![CDATA[Stack<String> undoBuffer = new Stack<String>();]]></answer1>
+    <answer2>Stack undoBuffer = new Stack();</answer2>
+    <answer3><![CDATA[Queue<String> undoBuffer = new Queue<String>();]]></answer3>
+    <answer4>Queue undoBuffer = new Queue();</answer4>
+  </question>
+
+  <question>
+    <id>13</id>
+    <text>You use Reflection to obtain information about a method named MyMethod. You need to ascertain whether MyMethod is accessible to a derived class.
+What should you do?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>Call the IsFamily property of the MethodInfo class.</answer1>
+    <answer2>Call the IsStatic property of the MethodInfo class.</answer2>
+    <answer3>Call the IsVirtual property of the MethodInfo class.</answer3>
+    <answer4>Call the IsAssembly property of the MethodInfo class.</answer4>
+  </question>
+
+  <question>
+    <id>14</id>
+    <text>You are working on a debug build of an application.
+You need to find the line of code that caused an exception to be thrown. Which property of the Exception class should you use to achieve this goal?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>StackTrace</answer1>
+    <answer2>Message</answer2>
+    <answer3>Source</answer3>
+    <answer4>Data</answer4>
+  </question>
+
+  <question>
+    <id>15</id>
+    <text>You are developing a class library. Portions of your code need to access system environment variables. You need to force a runtime SecurityException only when callers that are higher in the call stack do not have the necessary permissions.
+Which call method should you use?</text>
+    <media>Super_Trucker.sid</media>
+    <answer1>set.Demand();</answer1>
+    <answer2>set.Assert();</answer2>
+    <answer3>set.PermitOnly();</answer3>
+    <answer4>set.Deny();</answer4>
+  </question>
+
+</questions>
