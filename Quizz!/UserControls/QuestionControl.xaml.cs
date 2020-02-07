@@ -230,6 +230,7 @@ namespace Quizz_
             if (question.answerGreen != null)
             {
                 this.textGreen.Content = question.answerGreen;
+                this.textGreen.Visibility = Visibility.Visible;
             }
             else
             {
@@ -240,6 +241,7 @@ namespace Quizz_
             if (question.answerYellow != null)
             {
                 this.textYellow.Content = question.answerYellow;
+                this.textYellow.Visibility = Visibility.Visible;
             }
             else
             {

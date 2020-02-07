@@ -19,7 +19,7 @@ namespace Quizz_
                 client.BaseAddress = new Uri(@"https://opentdb.com/");
 
                 //var response = client.GetAsync($"api.php?amount=5&token={session}").Result;
-                var response = client.GetAsync($"api.php?amount=5").Result;
+                var response = client.GetAsync($"api.php?amount=7&category=11&difficulty=easy").Result;
                 response.EnsureSuccessStatusCode();
                 var rawMessage = response.Content.ReadAsStringAsync().Result;
                 var msgJObject = (JObject)JsonConvert.DeserializeObject(rawMessage);
