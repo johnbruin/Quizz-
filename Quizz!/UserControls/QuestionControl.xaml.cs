@@ -29,7 +29,7 @@ namespace Quizz_
 
         public QuestionControl()
         {
-            Main.sidplayer.stop();
+            Main.musicPlayer.Stop();
 
             this.InitializeComponent();
 
@@ -142,8 +142,9 @@ namespace Quizz_
 
                     buzzer.Inactive(ace.Id);
                     buzzer.LightOff(ace.Id);
-                    Main.PlaySound("-o27 fruitbank.sid", 1);
 
+                    Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+                    
                     Main.players[Main.GetPlayer(ace.Id)].Answer = ace.Answer;
 
                     if (ace.Answer == question.CorrectAnswer)
@@ -222,8 +223,10 @@ namespace Quizz_
             textGreen.Background = Brushes.Black;
             textYellow.Background = Brushes.Black;
 
-            Main.sidplayer.stop();
+            Main.musicPlayer.Stop();
+
             question = Main.questionlist.GetNextQuestion();
+
             this.textQuestion.Text = question.text;
             this.textBlue.Content = question.answerBlue;
             this.textOrange.Content = question.answerOrange;
@@ -249,13 +252,7 @@ namespace Quizz_
                 this.textYellow.Visibility = Visibility.Hidden;
             }
 
-            if (question.media?.EndsWith(".sid") != null)
-            {
-                Main.sidplayer = new SID();
-                Main.sidplayer.Seconds = 16;
-                Main.sidplayer.Filename = question.media;
-                Main.sidplayer.play();
-            }
+            Main.musicPlayer.Play("Super_Trucker_T001.sid_MOS6581R2.mp3");
         }
 
         private void CollectPoints()
@@ -288,7 +285,8 @@ namespace Quizz_
 
         private void textBlue_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
+            Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+
             if (question.CorrectAnswer != answercolor.blue)
                 ScoreAdder = -200;
             CollectPoints();
@@ -297,7 +295,8 @@ namespace Quizz_
 
         private void textOrange_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
+            Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+
             if (question.CorrectAnswer != answercolor.orange)
                 ScoreAdder = -200;
             CollectPoints();
@@ -306,7 +305,8 @@ namespace Quizz_
 
         private void textGreen_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
+            Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+
             if (question.CorrectAnswer != answercolor.green)
                 ScoreAdder = -200;
             CollectPoints();
@@ -315,7 +315,8 @@ namespace Quizz_
 
         private void textYellow_Click(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
+            Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+
             if (question.CorrectAnswer != answercolor.yellow)
                 ScoreAdder = -200;
             CollectPoints();
@@ -340,7 +341,7 @@ namespace Quizz_
 
         private void EndingTimer(int seconds)
         {
-            Main.PlaySound("-o2 fruitbank.sid", 5);
+            Main.musicPlayer.Play("Fruitbank_T005.sid_MOS6581R3.mp3");
 
             progRoundTimer.Visibility = Visibility.Hidden;
             DoubleAnimation myDoubleAnimation = new DoubleAnimation();
@@ -359,7 +360,8 @@ namespace Quizz_
 
         void myStoryboard_Completed(object sender, EventArgs e)
         {
-            Main.PlaySound("-o26 fruitbank.sid", 2);
+            Main.musicPlayer.Play("Fruitbank_T002.sid_MOS6581R3.mp3");
+
             Ending();
         }
 
@@ -394,11 +396,13 @@ namespace Quizz_
             if (question.CorrectAnswer == answercolor.green) textGreen.Background = Brushes.Green;
             if (question.CorrectAnswer == answercolor.yellow) textYellow.Background = Brushes.Green;
 
-            Main.sidplayer.stop();
+            Main.musicPlayer.Stop();
+
             scorePlayer1.imageOverlay.Visibility = Visibility.Visible;
             scorePlayer2.imageOverlay.Visibility = Visibility.Visible;
             scorePlayer3.imageOverlay.Visibility = Visibility.Visible;
             scorePlayer4.imageOverlay.Visibility = Visibility.Visible;
+
             EndingTimer(4);
         }
 

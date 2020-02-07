@@ -139,7 +139,8 @@ namespace Quizz_
                 }
             }
 
-            Main.PlaySound("-o27 fruitbank.sid", 1);
+            Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+
             buzzer.OnAnswerClick -= new Buzzer.AnswerHandler(AnswerClick);
             buzzer.Inactive(BuzzerID);
             buzzer.LightOff(BuzzerID);
@@ -151,7 +152,8 @@ namespace Quizz_
 
         private void buttonSelect_Click_1(object sender, RoutedEventArgs e)
         {
-            Main.PlaySound("-o27 fruitbank.sid", 1);
+            Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+
             Finished(this, new ChooseAvatarEventArgs(BuzzerID));
         }
 	}

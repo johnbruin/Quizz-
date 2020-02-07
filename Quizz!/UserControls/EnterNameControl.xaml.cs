@@ -163,7 +163,8 @@ namespace Quizz_
             {
                 if (txtName.Text.Trim() != "")
                 {
-                    Main.PlaySound("-o27 fruitbank.sid", 1);
+                    Main.musicPlayer.Play("Fruitbank_T001.sid_MOS6581R3.mp3");
+
                     txtName.Text = txtName.Text.Trim();
                     if (BuzzerID > 0)
                     {
